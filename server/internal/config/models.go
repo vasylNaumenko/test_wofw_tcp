@@ -30,6 +30,7 @@ type (
 	DDOSProtection struct {
 		Enabled           bool    `yaml:"enabled"`
 		PowComplexity     uint32  `yaml:"pow-complexity"`
+		PowSalt           string  `yaml:"pow-salt"`
 		RequestsPerSecond float64 `yaml:"requests-per-second"`
 	}
 )

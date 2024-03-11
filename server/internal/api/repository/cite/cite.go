@@ -18,6 +18,7 @@ type Repository struct {
 	log     *slog.Logger
 }
 
+// response is a response from the external API.
 type response struct {
 	Fortune string `json:"fortune"`
 }

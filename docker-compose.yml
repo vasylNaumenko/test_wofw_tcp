@@ -14,6 +14,22 @@ services:
     networks:
       - mynetwork
 
+  client-spam:
+    build: ./client
+    depends_on:
+      - server
+    entrypoint: [ "./main", "--empty-request","3" ]
+    networks:
+      - mynetwork
+
+  client-delay:
+    build: ./client
+    depends_on:
+      - server
+    entrypoint: [ "./main", "--delay","5s" ]
+    networks:
+      - mynetwork
+
 networks:
   mynetwork:
     driver: bridge

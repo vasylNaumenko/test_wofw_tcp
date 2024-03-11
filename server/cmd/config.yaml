@@ -1,10 +1,11 @@
 delivery:
   grpc-server:
     port: 9090
-    timeout: 30s
+    timeout: 4s
   ddos-protection:
     enabled: true
     pow-complexity: 1
+    pow-salt: "pow"
     requests-per-second: 2
 
 cites:

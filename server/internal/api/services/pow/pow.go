@@ -9,25 +9,25 @@ import (
 
 var _ services.POWService = &Service{}
 
-const powMessage = "pow"
-
 type (
 	// Service defines the main service struct.
 	Service struct {
 		complexity uint32
+		salt       string
 	}
 )
 
 // NewService creates a new service.
-func NewService(complexity uint32) *Service {
+func NewService(complexity uint32, salt string) *Service {
 	return &Service{
 		complexity: complexity,
+		salt:       salt,
 	}
 }
 
 // ValidatePOW validates proof of work.
 func (s Service) ValidatePOW(riddle, proof string) bool {
-	ok, _ := pow.Check(riddle, proof, []byte(powMessage))
+	ok, _ := pow.Check(riddle, proof, []byte(s.salt))
 	return ok
 }
 
