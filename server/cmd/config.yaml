@@ -1,0 +1,11 @@
+delivery:
+  grpc-server:
+    port: 9090
+    timeout: 30s
+  ddos-protection:
+    enabled: true
+    pow-complexity: 1
+    requests-per-second: 2
+
+cites:
+  base-url: http://yerkee.com/api/fortune/cookie

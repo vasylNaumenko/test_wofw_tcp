@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package cite;
+
+option go_package = "server/proto/cite"; // replace with your package
+
+service CiteService {
+  rpc GetCite(stream POWRequest) returns (stream CiteResponse) {}
+}
+
+message POWRequest {
+  string pow = 1;
+}
+
+message CiteResponse {
+  string cite = 1;
+  string powRiddle = 2;
+}
