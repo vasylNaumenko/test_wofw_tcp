@@ -18,7 +18,7 @@ services:
     build: ./client
     depends_on:
       - server
-    entrypoint: [ "./main", "--empty-request","3" ]
+    command: ["--empty-request","3" ]
     networks:
       - mynetwork
 
@@ -26,7 +26,7 @@ services:
     build: ./client
     depends_on:
       - server
-    entrypoint: [ "./main", "--delay","5s" ]
+    command: ["--delay","5s" ]
     networks:
       - mynetwork
 
