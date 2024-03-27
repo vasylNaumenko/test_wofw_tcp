@@ -1,4 +1,3 @@
-
 ### Design and implement “Word of Wisdom” tcp server.
 
 • TCP server should be protected from DDOS attacks with the Proof of Work (https://en.wikipedia.org/wiki/Proof_of_work),
@@ -9,22 +8,22 @@ collection of the quotes.
 
 • Docker file should be provided both for the server and for the client that solves the POW challenge
 
-### Run the server and client separately
+### Run the server and client
+
+Run the following command to start the server and client
 
 ```
- make run-server
-```
-
-then in another terminal, run the following command to start the client
-
-```
- make run-client
- make run-client-spam
- make run-client-delay
+ make run
 ```
 
 clean up the server and client, stop and remove the docker images
 
 ```
  make clean
+```
+
+### Run tests
+
+```
+ make test
 ```

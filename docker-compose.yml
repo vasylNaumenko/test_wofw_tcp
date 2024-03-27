@@ -1,35 +1,23 @@
 version: '3'
 services:
-  server:
-    build: ./server
+  my-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    networks:
+      - my-network
     ports:
-      - "9090:9090"
-    networks:
-      - mynetwork
+      - 8080:8080
 
-  client:
-    build: ./client
-    depends_on:
-      - server
+  my-client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
     networks:
-      - mynetwork
-
-  client-spam:
-    build: ./client
+      - my-network
     depends_on:
-      - server
-    command: ["--empty-request","3" ]
-    networks:
-      - mynetwork
-
-  client-delay:
-    build: ./client
-    depends_on:
-      - server
-    command: ["--delay","5s" ]
-    networks:
-      - mynetwork
+      - my-server
 
 networks:
-  mynetwork:
+  my-network:
     driver: bridge
